@@ -5,6 +5,7 @@ import InputBase from "@material-ui/core/InputBase";
 import IconButton from "@material-ui/core/IconButton";
 import ClearIcon from "@material-ui/icons/Clear";
 import SearchIcon from "@material-ui/icons/Search";
+import Button from "@material-ui/core/Button";
 
 const Search = props => {
   const classes = useStyles();
@@ -32,9 +33,13 @@ const Search = props => {
           </IconButton>
         ) : null}
       </Paper>
-      <IconButton onClick={props.showResult}>
-        <SearchIcon />
-      </IconButton>
+      <Button
+        onClick={props.showResult}
+        color="primary"
+        endIcon={<SearchIcon>Serach</SearchIcon>}
+      >
+        Search
+      </Button>
     </div>
   );
 };

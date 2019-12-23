@@ -10,14 +10,23 @@ const Results = props => {
   const img = currently.icon;
   const path = require(`../svg/${img}.svg`);
   return (
-    <div>
+    <div className={classes.container}>
       <Card className={classes.card}>
         <CardActionArea>
           <img className={classes.image} src={path} alt={img} />
           <CardContent>
-            <Typography component="h2">{props.city}</Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              Temparature: {currently.temperature}
+            <Typography component="p">City: {props.city}</Typography>
+            <Typography component="p">
+              Temparature: {currently.temperature}°C
+            </Typography>
+            <Typography component="p">
+              Status: {currently.summary}
+            </Typography>
+            <Typography component="p">
+              Visibility: {currently.visibility.toFixed(2)}KM
+            </Typography>
+            <Typography component="p">
+              Humidity: {(currently.humidity * 100).toFixed(2)}%
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -29,10 +38,16 @@ const Results = props => {
 const useStyles = makeStyles({
   card: {
     width: 500,
-    height: 400
+    height: 315
   },
   image: {
     height: 160
+  },
+  container: {
+    display: "inline-block",
+    verticalAlign: "middle",
+    marginTop: 20,
+    margin: "0 auto"
   }
 });
 
